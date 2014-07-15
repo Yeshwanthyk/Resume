@@ -33,7 +33,7 @@ def parse_options():
         '-m',
         '--markdown',
         dest='markdown',
-        default='src/md/john-cadengo.md',
+        default='src/md/yesh.md',
         help=('specify the path of the MARKDOWN used to generate the content '
               'of the html')
     )
@@ -84,7 +84,7 @@ def main():
     if not os.path.exists('build/html'):
         os.makedirs('build/html')
 
-    f = codecs.open('build/html/john-cadengo.html', 'w', encoding='utf-8')
+    f = codecs.open('build/html/yesh.html', 'w', encoding='utf-8')
     f.write(template)
     f.close()
 
@@ -93,8 +93,8 @@ def main():
         os.makedirs('build/pdf')
 
     call(['wkhtmltopdf', '-B', '0.0', '-L', '0.0', '-R', '0.0', '-T', '0.0',
-          '-s', 'Letter', './build/html/john-cadengo.html',
-          './build/pdf/john-cadengo.pdf'])
+          '-s', 'A4', './build/html/yesh.html',
+          './build/pdf/yesh.pdf'])
 
 
 if __name__ == '__main__':
